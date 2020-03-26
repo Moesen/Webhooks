@@ -1,10 +1,9 @@
 from flask import Flask, render_template, request, jsonify
 import os
-import redis
 import league_updater
 
 app = Flask(__name__)
-
+handler = league_updater.WebhookHandler()
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -18,10 +17,10 @@ def send_message():
         username = message["username"]
         content = message["content"]
 
-        league_updater.send_message(username=username,
-                                    content=content)
+        handler.send_message(username=username,
+                             content=content)
 
         return render_template("message_sent.html")
 
 if __name__ == "__main__":
-    app.run(threaded=True, debug=True, port=5000)
+    app.run(threaded=True)

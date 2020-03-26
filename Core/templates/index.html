@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='styles/mainlook.css')}}">
     {% block title %}
     <title>Rehoboam Webhook</title>
     {% endblock %}
 </head>
 <body>
+<div class = "header">
+
+</div>
 <div class="content">
     {% block content %}
     <form action="/send_message" method="POST">
