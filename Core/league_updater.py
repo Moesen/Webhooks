@@ -1,16 +1,14 @@
 from discord_webhook import DiscordWebhook
+from random import randint
 from secret import Info
 
+def send_message(**kwargs):
+    username = kwargs.get("username", "RehoboamBot")
+    content = kwargs.get("content", f"Bip Bop  {randint(1,100000)}")
 
-class LeagueToDiscWebhook(object):
-    def __init__(self, webhook_url):
-        self.webhook_url = webhook_url
-
-    def send_message(self, **kwargs):
-        pass
-# webhook = DiscordWebhook(url=webhook_url,
-#                          content="Hello",
-#                          username="Gustav")
-# response = webhook.execute()
-#
-# print(response)
+    webhook = DiscordWebhook(url=Info.webhook_url,
+                             username=username,
+                             content=content
+                             )
+    response = webhook.execute()
+    print(response)

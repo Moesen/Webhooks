@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block title %}
+    <title>Rehoboam Webhook</title>
+    {% endblock %}
+</head>
+<body>
+<div class="content">
+    {% block content %}
+    <form action="/send_message" method="POST">
+        <p>Name <input type="text" name="username"/></p>
+        <p>Message <input type="text" name="content"/></p>
+        <p><input type="submit" value="submit"></p>
+    </form>
+    {% endblock %}
+</div>
+</body>
+</html>
