@@ -7,10 +7,10 @@ class LeagueToDiscWebhook(object):
         self.webhook_url = webhook_url
 
     def send_message(self, **kwargs):
-
-webhook = DiscordWebhook(url=webhook_url,
-                         content="Hello",
-                         username="Gustav")
-response = webhook.execute()
-
-print(response)
+        pass
+# webhook = DiscordWebhook(url=webhook_url,
+#                          content="Hello",
+#                          username="Gustav")
+# response = webhook.execute()
+#
+# print(response)
