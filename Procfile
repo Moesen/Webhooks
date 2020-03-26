@@ -1,4 +1,5 @@
-web: gunicorn --chdir /Core application.py:app
+web: gunicorn --chdir Core application.py:app
+
 
 
 
