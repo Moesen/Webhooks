@@ -1,11 +1,10 @@
 from discord_webhook import DiscordWebhook
 from random import randint
-from secret import Info
-
+import os
 
 class WebhookHandler(object):
     def __init__(self):
-        self.webhook_url = Info.webhook_url
+        self.webhook_url = os.getenv("discord_webhook_url")
         if self.webhook_url is None:
             raise Exception("url not found")
 
