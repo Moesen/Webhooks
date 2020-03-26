@@ -1,8 +1,16 @@
-{% extends "index.html %}
-{% block title %}
+{% extends "index.html" %}
+{% block head %}
 <title>Current Status</title>
 {% endblock %}
-{% block content %}
-
+{% block header %}
+{{super()}}
 {% endblock %}
-{% block
+{% block left_content %}
+{{super()}}
+{% endblock %}
+{% block middle_content %}
+{{super()}}
+{% endblock %}
+{% block right_content %}
+{{super()}}
+{% endblock %}

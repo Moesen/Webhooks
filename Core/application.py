@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, redirect, url_for
 import os
 import league_updater
 
@@ -20,7 +20,13 @@ def send_message():
         handler.send_message(username=username,
                              content=content)
 
-        return render_template("message_sent.html")
+        return redirect(url_for("index"))
+
+
+@app.route("/summoner_status", methods=["POST", "GET"])
+def summoner_status():
+    return redirect("/")
+
 
 if __name__ == "__main__":
     app.run(threaded=True)

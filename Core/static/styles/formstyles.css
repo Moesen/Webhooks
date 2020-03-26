@@ -1,0 +1,29 @@
+input {
+  border: None;
+}
+
+input[type=submit] {
+  box-shadow: -2px -2px 0px 1px #9fb4f2;
+	background-color: white
+	border-radius:15px;
+	display:inline-block;
+	cursor:pointer;
+	font-family:Arial;
+	font-size:19px;
+	padding:10px 26px;
+	text-decoration:none;
+	text-shadow:0px 0px 0px #283966;
+}
+
+input[type=submit]:hover {
+	background-color: white;
+}
+
+input[type=submit]:active {
+	position:relative;
+	top:1px;
+}
+
+#form_message {
+
+}
