@@ -2,3 +2,4 @@
 !/Data/readme.md
 **/venv/
 **/.idea/
+**/__pycache__/
