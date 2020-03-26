@@ -1,4 +1,4 @@
-web: gunicorn Core/application:application
+web: gunicorn  --chdir Core/ application:application
 
 
 
