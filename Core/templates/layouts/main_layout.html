@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='styles/mainlook.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='styles/formstyles.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Sen:400,700,800&display=swap" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/nanobar/0.2.1/nanobar.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/task_scripts.js') }}"></script>
+    {% block head %}
+    <title>Layout</title>
+    {% endblock %}
+</head>
+<body>
+<div class="content">
+    <div class="header">
+        <a href="/"> Main Page </a>
+        <a href="/summoner_status"> Summoner Status </a>
+        <a href="/summoner_edit"> Edit Summoners </a>
+        <a href="/tasks"> Tasks</a>
+        <a href="/about"> About </a>
+    </div>
+    <div class="page_content">
+        <div class="left_content">
+        </div>
+        <div class="middle_content">
+            {% block middle_content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

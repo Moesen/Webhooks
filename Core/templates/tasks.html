@@ -1,0 +1,17 @@
+{% extends "layouts/main_layout.html" %}
+
+{% block head %}
+<title>Tasks</title>
+{% endblock %}
+
+{% block middle_content %}
+
+<div class = "content_card" >
+    <div id="add_long_task">
+        <button onclick="start_long_task()">Add long task</button>
+    </div>
+</div>
+<div class = "content_card" id = "progress">
+</div>
+
+{% endblock %}

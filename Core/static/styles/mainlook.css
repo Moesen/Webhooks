@@ -27,10 +27,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding-left: 270px;
+  padding-left: 240px;
   height: 50px;
   background-color: #222326;
 }
+
 
 
 .header a {
@@ -40,6 +41,11 @@ body {
   font-weight: bold;
   font-size: 19px;
   margin-right: 20px;
+}
+
+.header a:hover {
+  color: #efefef;
+  font-weight: normal;
 }
 
 
@@ -56,21 +62,21 @@ body {
   background-color: #EFEFEF;
 }
 
+.middle_content{
+  width: 100%;
+}
+
 .content_card:nth-child(n+2) {
   border-top: 1px solid #222326;
 }
 
 .content_card {
+
   color: #222326;
-  margin: 10px 10px;
-  padding: 1px 10px;
+  margin: 5px 10px;
+  padding: 5px 10px;
 }
 
 .content_card h1 {
   font-weight: 1000;
-
-}
-
-.content_card p {
-  font-weight: bold;
 }

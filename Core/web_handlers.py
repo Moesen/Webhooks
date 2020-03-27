@@ -1,5 +1,5 @@
 from discord_webhook import DiscordWebhook
-from riotwatcher import LolWatcher, ApiError
+from riotwatcher import LolWatcher
 import os
 
 

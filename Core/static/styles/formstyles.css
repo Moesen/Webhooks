@@ -3,8 +3,16 @@ input {
 
 }
 
+form p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
 input[type=text] {
-  border-bottom: 1px solid #222326;
+  font-size: 20px;
+  font-style: italic;
+  /*border-bottom: 1px solid #222326;*/
+  font-family: 'Sen', sans-serif;
 }
 
 input[type=submit] {
@@ -13,7 +21,7 @@ input[type=submit] {
 	display:inline-block;
 	cursor:pointer;
   font-weight: bold;
-	font-size:19px;
+	font-size:20px;
 	padding:10px 26px;
 }
 
@@ -24,8 +32,4 @@ input[type=submit]:hover {
 input[type=submit]:active {
 	position:relative;
 	top:1px;
-}
-
-#form_message {
-
 }

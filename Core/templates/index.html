@@ -1,45 +1,44 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='styles/mainlook.css')}}">
-  <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='styles/formstyles.css')}}">
-  <link href="https://fonts.googleapis.com/css?family=Sen:400,700,800&display=swap" rel="stylesheet">
-  {% block head %}
-  <title>Rehoboam Webhook</title>
-  {% endblock %}
-</head>
-<body>
-  <div class="content">
-    <div class="header">
-      {% block header %}
-      <a href="/summoner_status"> Summoner Status </a>
-      <a href="/summoner_edit">Edit Summoners</a>
-      <a href="/processes"> Processes</a>
-      <a href="/about"> About </a>
-      {% endblock %}
-    </div>
-    <div class="page_content">
-      <div class="left_content">
-        {% block left_content %}
-        {% endblock %}
-      </div>
-      <div class="middle_content">
-        {% block middle_content %}
-        <div class="content_card">
-          <h1>Ping discord chat</h1>
-          <form action="/send_message" method="POST">
-            <table>
-              <tr><td> <p>Name</p></td><td><input type="text" placeholder="TestBot1" name="username"/></td></tr>
-              <tr><td> <p>Message</p></td><td><input type="text" placeholder="42" name="content" /></td></tr>
-              <tr>
+{% extends "layouts/main_layout.html" %}
+
+{% block head %}
+<title>Rehoboam Webhook</title>
+{% endblock %}
+
+{% block middle_content %}
+<div class="content_card">
+    <h1>Ping discord chat</h1>
+    <form action="/send_message" method="POST">
+        <table>
+            <tr>
+                <td><p>Name: </p></td>
+                <td><input type="text" placeholder="TestBot1" name="username"></td>
+            </tr>
+            <tr>
+                <td><p>Message: </p></td>
+                <td><input type="text" value="Ping" name="content" readonly></td>
+            </tr>
+            <tr>
                 <td colspan="2"><p><input type="submit" value="Ping"></p></td>
-              </tr>
-            </table>
-          </form>
-        </div>
-        {% endblock %}
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+            </tr>
+        </table>
+    </form>
+</div>
+<div class="content_card">
+    <h1>Write message to discord chat</h1>
+    <form action="/send_message" method="POST">
+        <table>
+            <tr>
+                <td><p>Name: </p></td>
+                <td><input type="text" placeholder="TestBot1" name="username"></td>
+            </tr>
+            <tr>
+                <td><p>Message: </p></td>
+                <td><input type="text" placeholder="BipBop" name="content"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><p><input type="submit" value="Ping"></p></td>
+            </tr>
+        </table>
+    </form>
+</div>
+{% endblock %}
