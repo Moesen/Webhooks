@@ -10,7 +10,6 @@ function start_long_task() {
     });
 
     // send ajax POST request to start background job
-    /*
     $.ajax({
         type: 'POST',
         url: '/tasks/add_long_task',
@@ -22,7 +21,6 @@ function start_long_task() {
             alert('Unexpected error');
         }
     });
-    */
 
 
 }

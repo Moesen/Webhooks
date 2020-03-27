@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, jsonify
 import os
 import web_handlers
 from celery import Celery
+import celery_tasks
 import time
 import random
 
@@ -12,33 +13,17 @@ app = Flask(__name__)
 app.config["CELERY_BROKER_URL"] = os.environ.get("REDIS_URL")
 app.config["CELERY_RESULT_BACKEND"] = os.environ.get("REDIS_URL")
 
-celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'], backend=os.environ.get("REDIS_URL"))
-
+celery = celery_tasks.make_celery(app)
 webhook_handler = web_handlers.WebhookHandler()
 
 
 # <------ Celery Tasks ------>
 
-@celery.task(bind=True)
-def long_task(self):
-    print("celery task called!")
-    """Background task that runs a function that takes a long time"""
-    verb = ['Starting up', 'Booting', 'Repairing', 'Loading', 'Checking']
-    adjective = ['master', 'radiant', 'silent', 'harmonic', 'fast']
-    noun = ['solar array', 'particle reshaper', 'cosmic ray', 'orbiter', 'bit']
-    total = random.randint(1, 10)
-    message = ''
-    for i in range(total):
-        message = '{0} {1} {2}...'.format(random.choice(verb),
-                                              random.choice(adjective),
-                                              random.choice(noun))
-        self.update_state(state='PROGRESS',
-                          meta={'current': i, 'total': total,
-                                'status': message})
-        time.sleep(1)
-
-    return {'current': 100, 'total': 100, 'status': 'Task completed!',
-            'result': 42}
+@celery.task()
+def long_task():
+    delay = 2
+    time.sleep(delay)
+    return f"Slept for {delay} seconds"
 
 
 # <----- MainPage ----->
@@ -133,4 +118,6 @@ def about():
 
 
 if __name__ == "__main__":
-    app.run(threaded=True)
+    result = long_task.delay()
+    print(result.wait())
+    # app.run(threaded=True)
