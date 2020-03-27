@@ -47,6 +47,22 @@ def send_message():
         return redirect(url_for("index"))
 
 
+@app.route("/send_message_custom_url", methods=["POST", "GET"])
+def send_message_custom_url():
+    if request.method == "POST":
+        message = request.form
+        username = message["username"]
+        content = message["content"]
+        webhook_url = message["webhook_url"]
+
+        webhook_handler.send_message_custom_url(webhook_url,
+                                                username=username,
+                                                content=content
+                                                )
+
+        return redirect(url_for("index"))
+
+
 # <----- Summoner ----->
 
 
@@ -118,6 +134,4 @@ def about():
 
 
 if __name__ == "__main__":
-    result = long_task.delay()
-    print(result.wait())
-    # app.run(threaded=True)
+    app.run(threaded=True)

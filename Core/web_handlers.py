@@ -18,6 +18,17 @@ class WebhookHandler(object):
         response = webhook.execute()
         return response.content
 
+    def send_message_custom_url(self, webhook_url, **kwargs):
+        username = kwargs.get("username", "Bot")
+        content = kwargs.get("content", "Ping")
+
+        webhook = DiscordWebhook(url=webhook_url,
+                                 username=username,
+                                 content=content
+                                 )
+        response = webhook.execute()
+        return response.content
+
 
 class SummonerUpdater(object):
     def __init__(self):

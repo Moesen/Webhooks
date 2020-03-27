@@ -41,4 +41,26 @@
         </table>
     </form>
 </div>
+<div class="content_card">
+    <h1>Write message to discord chat</h1>
+    <form action="/send_message_custom_url" method="POST">
+        <table>
+            <tr>
+                <td><p>Name: </p></td>
+                <td><input type="text" placeholder="TestBot1" name="username"></td>
+            </tr>
+            <tr>
+                <td><p>Message: </p></td>
+                <td><input type="text" placeholder="BipBop" name="content"></td>
+            </tr>
+            <tr>
+                <td><p>WebhookURL: </p></td>
+                <td><input type="text" placeholder="https://discordapp.com/api/webhooks/..." name="webhook_url"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><p><input type="submit" value="Ping"></p></td>
+            </tr>
+        </table>
+    </form>
+</div>
 {% endblock %}
