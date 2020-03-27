@@ -25,7 +25,20 @@ def send_message():
 
 @app.route("/summoner_status", methods=["POST", "GET"])
 def summoner_status():
-    return redirect("/")
+    return redirect(url_for("index"))
+
+
+@app.route("/summoner_edit", methods=["POST", "GET"])
+def summoner_edit():
+    return redirect(url_for("index"))
+
+@app.route("/processes", methods=["POST", "GET"])
+def processes():
+    return redirect(url_for("index"))
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
 
 
 if __name__ == "__main__":

@@ -3,7 +3,7 @@
 <head>
   <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='styles/mainlook.css')}}">
   <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='styles/formstyles.css')}}">
-  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Sen:400,700,800&display=swap" rel="stylesheet">
   {% block head %}
   <title>Rehoboam Webhook</title>
   {% endblock %}
@@ -13,6 +13,9 @@
     <div class="header">
       {% block header %}
       <a href="/summoner_status"> Summoner Status </a>
+      <a href="/summoner_edit">Edit Summoners</a>
+      <a href="/processes"> Processes</a>
+      <a href="/about"> About </a>
       {% endblock %}
     </div>
     <div class="page_content">
@@ -26,19 +29,14 @@
           <h1>Ping discord chat</h1>
           <form action="/send_message" method="POST">
             <table>
-              <tr><td> <p>Name</p></td><td><input type="text" name="username"/></td></tr>
-              <tr><td> <p>Message</p></td><td><input type="text" name="content" id="form_message"/></td></tr>
+              <tr><td> <p>Name</p></td><td><input type="text" placeholder="TestBot1" name="username"/></td></tr>
+              <tr><td> <p>Message</p></td><td><input type="text" placeholder="42" name="content" /></td></tr>
               <tr>
                 <td colspan="2"><p><input type="submit" value="Ping"></p></td>
               </tr>
             </table>
           </form>
         </div>
-        {% endblock %}
-      </div>
-
-      <div class="right_content">
-        {% block right_content %}
         {% endblock %}
       </div>
     </div>
